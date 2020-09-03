@@ -1,10 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [countries, setCountries] = useState([]);
+  useEffect(() => {
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then((res) => res.json())
+      .then((data) => setCountries(data));
+  }, []);
   return (
     <div className="App">
+      <h1>country loaded:{countries.length}</h1>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
