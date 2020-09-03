@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
+import Country from "./Components/Country/Country";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -10,11 +11,19 @@ function App() {
       .then((res) => res.json())
       .then((data) => setCountries(data))
       .catch((error) => console.log(error));
-    // the website will run with error and it is powerfull.
   }, []);
   return (
     <div className="App">
       <h1>country loaded:{countries.length}</h1>
+
+      <ul>
+        {countries.map((country) => (
+          <Country country={country} key={country.alpha3Code}>
+            {" "}
+          </Country>
+        ))}
+      </ul>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
