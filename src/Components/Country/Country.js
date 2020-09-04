@@ -3,7 +3,7 @@ import "./country.css";
 
 const Country = (props) => {
   const { name, population, region, flag } = props.country;
-  const flagStyle = { height: 150, width: 250 };
+  const flagStyle = { height: 100, width: 150 };
   const countryStyle = {
     border: "3px solid salmon",
     margin: "30px",
